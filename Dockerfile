@@ -17,7 +17,9 @@ RUN sed -i -e 's/\(^.*disable.*=\) yes/\1 no/' /etc/xinetd.d/tftp && \
 RUN mkdir -p /var/www/cblr_ks
 
 COPY start.sh /usr/local/bin/start.sh
-VOLUME ["/var/lib/cobbler", "/var/www/cobbler", "/etc/cobbler", "/mnt"]
+RUN mv /etc/httpd/conf.d/cobbler_web.conf /etc/httpd/conf.d/cobbler_web.conf.bk
+COPY cobbler_web.conf /etc/httpd/conf.d/cobbler_web.conf
+VOLUME ["/var/lib/cobbler", "/var/www/cobbler", "/etc/cobbler", "/mnt", "/var/www/cobbler/repo_mirror"]
 EXPOSE 67
 EXPOSE 69
 EXPOSE 80
