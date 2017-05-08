@@ -21,6 +21,7 @@ RUN sed -i -e 's/\(^.*disable.*=\) yes/\1 no/' /etc/xinetd.d/tftp && \
 
 RUN mkdir -p /var/www/cblr_ks
 
+COPY distro_signatures.json /var/lib/cobbler/distro_signatures.json
 COPY start.sh /usr/local/bin/start.sh
 RUN mv /etc/httpd/conf.d/cobbler_web.conf /etc/httpd/conf.d/cobbler_web.conf.bk
 COPY cobbler_web.conf /etc/httpd/conf.d/cobbler_web.conf
