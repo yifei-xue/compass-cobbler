@@ -8,8 +8,8 @@ ADD . /root/compass-cobbler
 RUN yum -y update && \
     yum -y install epel-release && \
     yum -y install wget dhcp bind syslinux pykickstart file initscripts net-tools tcpdump xinetd vim avahi avahi-tools ntp && \
-    wget ftp://mirror.switch.ch/pool/4/mirror/fedora/linux/updates/22/armhfp/c/cobbler-2.6.10-1.fc22.noarch.rpm && \
-    wget ftp://mirror.switch.ch/pool/4/mirror/fedora/linux/updates/22/armhfp/c/cobbler-web-2.6.10-1.fc22.noarch.rpm && \
+    wget http://repos.dfw.quadranet.com/pub/pub/fedora/updates/22/armhfp/c/cobbler-2.6.10-1.fc22.noarch.rpm && \
+    wget http://repos.dfw.quadranet.com/pub/pub/fedora/updates/22/armhfp/c/cobbler-web-2.6.10-1.fc22.noarch.rpm && \
     yum -y localinstall cobbler-2.6.10-1.fc22.noarch.rpm cobbler-web-2.6.10-1.fc22.noarch.rpm && \
     rm -f cobbler-2.6.10-1.fc22.noarch.rpm cobbler-web-2.6.10-1.fc22.noarch.rpm && \
     systemctl enable cobblerd && \
